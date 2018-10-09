@@ -14,7 +14,7 @@ body {
 
 /* many things inherit from color and font of container */
 .container {
-  width: 1000px;
+  width: 70%;
   font-family: 'Karla', sans-serif;
   font-size: 40px;
   text-align: center;
@@ -131,9 +131,9 @@ form {
 /* button for timer start should be centered vertically on the right */
 .item .timer-start {
   position: absolute;
-  right: -90px;
+  right: -13%;
   top: 50%;
-  transform: translateY(-50%); /* centers vertically */
+  transform: translateY(-100%); /* centers vertically */
   font: inherit;
   font-size: 12px;
   cursor: pointer;
@@ -143,9 +143,9 @@ form {
 /* display for how much time left should be centered vertically on the right */
 .item .timer-time {
   position: absolute;
-  right: -190px;
+  right: -14%;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(0%);
   font: inherit;
   font-size: 16px;
   margin: 1px 1px 1px 1px;
