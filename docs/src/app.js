@@ -1,80 +1,44 @@
+// Address of the server we are storing our list on
+var server_url = "https://listalous.herokuapp.com/lists/Annoy-O-List";
 
-// listItem class
-class listItem {
-  constructor(id, description, completed, createdOn) {
-    this._id = id;
-    this._description = description;
-    this._completed = completed;
-    this._createdOn = createdOn;
-  }
-
-  get id() { return this._id; }
-  get description() { return this._description; }
-  get completed() { return this._completed; }
-  get createdOn() { return this._createdOn; }
-}
-
-// From StackOverflow 
-// https://stackoverflow.com/questions/36921947/read-a-server-side-file-using-javascript
-// Reads the text from a local file on the server
-var loadFile = function(filePath) {
-  var result = null;
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("GET", filePath, false);
-  xmlhttp.send();
-  if (xmlhttp.status==200) {
-    result = xmlhttp.responseText;
-  }
-  return result;
-}
-
-var writeFile = function(data) {
-  var data = new FormData();
-  data.append("data" , data);
-  var xhr = (window.XMLHttpRequest) ? new XMLHttpRequest() : new activeXObject("Microsoft.XMLHTTP");
-  xhr.open( 'post', 'lib/save_file.php', true );
-  xhr.send(data);
-}
-
+// Tutorial - jQuery to get the template for our items, and our list of items from HTML
+var itemTemplate = $('#templates .item');
+var list         = $('#list');
 
 // Tutorial - function that adds an item to the list which updates it
 var addItemToPage = function(itemData) {
   var item = itemTemplate.clone();
   item.attr('data-id', itemData.id);
   item.find('.description').text(itemData.description);
-  item.find('.created-time').text(itemData.createdOn);
 
   if(itemData.completed) {
     item.addClass('completed');
   }
 
+  // Dennis - display the time of creation
+  var createdDate = new Date(itemData.created_at);
+  item.find('.created-time').text(createdDate.toLocaleString());
+
+  // Dennis - default timer is 1 min
+  item.find('.timer-time').text('00h 01m 00s');
+
   list.append(item);
 }
 
-// initialize the app (upon page ready)
-var items = []; // global variable holding list of listItems to display
-var dataFName;  // global variable containing the filename of the YAML data file
-$(document).ready(function() {
-  // Get the name of the YAML file with the data
-  var configResult = jsyaml.load(loadFile("config.yml"));
-  datafName = configResult.DATAFILE;
-  // load data YAML file
-  var dataResult = jsyaml.load(loadFile(datafName)).items;
-  // create listItems and add them to the items list
-  dataResult.forEach(function(item) {
-    items.push(new listItem(item.id, item.description, item.completed,
-                            item.createdOn))
-  });
-  // add each item to the page
-  items.forEach(function(item) {
-    addItemToPage(item);
-  });
-
+// Tutorial - use jQuery's AJAX method to get our list data
+var loadRequest = $.ajax({
+  type: 'GET',
+  url: server_url
 });
 
-// Tutorial - jQuery to get the template for our items, and our list of items from HTML
-var itemTemplate = $('#templates .item');
-var list         = $('#list');
+// Tutorial - whenever loadRequest is called, add each of the item's data to the list
+loadRequest.done(function(dataFromServer) {
+  var itemsData = dataFromServer.items;
+
+  itemsData.forEach(function(itemData) {
+    addItemToPage(itemData);
+  })
+});
 
 // Tutorial - when the add-form button is pressed, get the item's description.
 $('#add-form').on('submit', function(event) {
@@ -85,16 +49,12 @@ $('#add-form').on('submit', function(event) {
 
   // Dennis Shim - clear the form
   event.target.itemDescription.value = "";
-
-  // Dennis Shim - give item a createdTime
-  var dt = new Date();
-  var itemCreatedTime = dt.toLocaleString();
-
+  
   // Use AJAX to save an item to the database
   var creationRequest = $.ajax({
     type: 'POST',
-    url: "items",
-    data: { description: itemDescription, createdTime: itemCreatedTime, completed: false }
+    url: server_url + "/items",
+    data: { description: itemDescription, completed: false }
   });
   
   // Once in the database, add the item to the page
@@ -141,6 +101,3 @@ $('#list').on('click', '.delete-button', function(event) {
   });
 });
 
-if(localStorage.getItem('color') === 'changed') {
-  $('#item').css("font", "#FFFFFF");
-}

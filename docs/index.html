@@ -2,17 +2,9 @@
 <html>
   <head>
     <title>Annoy-O-List</title>
-    <!-- css -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <!-- fonts from Google -->
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet" type='text/css'>
-    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
-    <!-- Third party scripts -->
-    <script src="lib/js-yaml.js"></script>
-    <!-- my scripts -->
-    <script src="src/app.js"></script>
-    <script src="src/settings.js"></script>
   </head>
 
   <body>
@@ -50,7 +42,7 @@
               <tr>
                 <!-- drop-down for app background color -->
                 <td>
-                  <label class="settings-label">Background color</label>
+                  <label class="settings-label">Background color&nbsp&nbsp</label>
                 </td>
                 <td>
                   <select class="background-val settings-input" id="colorValue">
@@ -70,25 +62,51 @@
               </th>
 
               <!-- advanced settings hidden by default -->
-              <!--<div id='advanced-settings'>-->
               <!--<table class="settings-table">-->
               <tr class="advanced-tr">
-                <!-- drop-down for text color -->
+                <!-- checkbox for display-times -->
                 <td>
-                  <label class="settings-label">Display time</label>
+                  <label class="settings-label">Show created date</label>
                 </td>
                 <td>
-                  <input type="checkbox" id="display-time">
+                  <input type="checkbox" id="display-time" class="adv-check">
                 </td>
               </tr>
 
               <tr id="table-alarm" class="advanced-tr hidden-adv">
-                <!-- drop-down for app background color -->
+                <!-- checkbox to enable alarms -->
                 <td>
                   <label class="settings-label">Enable alarms</label>
                 </td>
                 <td>
-                  <input type="checkbox" id="enable-alarm">
+                  <input type="checkbox" id="enable-alarm" class="adv-check">
+                </td>
+              </tr>
+
+              <tr id="time-to-alarm" class="advanced-tr hidden-adv">
+                <!-- inputs for alarm times -->
+                <td>
+                  <label class="settings-label">Time until alarm</label>
+                </td>
+                <td class="times">
+                  H <input type="number" min="0" max="60" value="0" id="alarm-h" class="time-inp">
+                  M <input type="number" min="0" max="60" value="1" id="alarm-m" class="time-inp">
+                  S <input type="number" min="0" max="60" value="0" id="alarm-s" class="time-inp">
+                </td>
+              </tr>
+
+              <!-- link to hide/unhide advanced settings -->
+              <th colspan="2" id="show-ann-tr" class="advanced-tr">
+                  <a href='#' id='show-annoying'>Annoy-O-Settings...</a>
+              </th>
+
+              <tr id="annoying-meter" class="extra-hidden">
+                <!-- inputs for alarms -->
+                <td>
+                  <label class="settings-label">How Annoy-O?</label><span id="annoy-count"></span>
+                </td>
+                <td>
+                  <input type="range" min="1" max="5" value="1" class="slider" id="how-annoying">
                 </td>
               </tr>
             </table>
@@ -111,10 +129,23 @@
 
         </ul>
         <form id='add-form'>
-          <input id="create" name="itemDescription" type="text" placeholder="Add an item to the Annoy-O-List here." required="required">
+          <input id="create" name="itemDescription" type="text" placeholder="Add an item to your Annoy-O-List here." required="required">
         </form>
       </div>
     </div>
+
+    <audio id="annoy-audio">
+      <source src="assets/annoy-o-hello.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="annoy-audio-attack">
+      <source src="assets/annoy-o-attack.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="annoy-audio-dead">
+      <source src="assets/annoy-o-dead.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
 
     <ul id='templates'>
       <li class='item' data-id="some id">
@@ -122,9 +153,13 @@
         <div class="description">A stick of butter</div>
         <span class="delete-button">&#10008;</span>
         <span class="created-time">12/03/2018 10:20 PM</span>
+        <button class="timer-start stopped">Start Timer</button>
+        <span class="timer-time">10h 03m 01s</span>
       </li>
     </ul>
 
-    
+    <script src="src/app.js"></script>
+    <script src="src/settings.js"></script>
+    <script src="src/timer.js"></script>
   </body>
 </html>

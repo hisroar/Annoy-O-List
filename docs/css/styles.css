@@ -71,7 +71,8 @@ form {
 .item .complete-button {
   position: absolute;
   left: 20px;
-  top: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
 }
 
@@ -84,7 +85,8 @@ form {
 .item .delete-button {
   position: absolute;
   right: 20px;
-  top: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
 }
 
@@ -93,11 +95,34 @@ form {
   right: 20px;
   top: 0px;
   font-size: 14px;
-  cursor: pointer;
+  display: none;
 }
 
-.item.completed {
+.completed {
   color: #C3C3C4;
+  text-decoration: line-through;
+}
+
+.item .timer-start {
+  position: absolute;
+  right: -90px;
+  top: 50%;
+  transform: translateY(-50%); /* centers vertically */
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  display: none;
+}
+
+.item .timer-time {
+  position: absolute;
+  right: -190px;
+  top: 50%;
+  transform: translateY(-50%);
+  font: inherit;
+  font-size: 16px;
+  margin: 1px 1px 1px 1px;
+  display: none;
 }
 
 #templates {
@@ -125,9 +150,11 @@ form {
 
 #settings-list {
   display: none;
+  color: inherit;
 }
 
 .settings-form {
+  color: inherit;
 }
 
 .settings-form .settings-table {
@@ -138,6 +165,7 @@ form {
 .settings-form .settings-label {
   margin-right: 50px;
   font-size: 30px;
+  color: inherit;
 }
 
 .settings-form .settings-input {
@@ -167,10 +195,29 @@ form {
   display: none;
 }
 
+.adv-check {
+  height: 22px;
+  width: 22px;
+}
+
 #table-alarm {
   display: none;
 }
 
 .time-stamps {
+  display: none;
+}
+
+.time-inp {
+  width: 40px;
+  font: inherit;
+}
+
+#show-ann-tr {
+  font-size: 5px;
+  margin-bottom: 20px;
+}
+
+.extra-hidden {
   display: none;
 }
