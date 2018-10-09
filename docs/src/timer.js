@@ -1,4 +1,8 @@
-// Dennis Shim - check if the timer is ever started
+/* Author: Dennis Shim
+   All code in here is mine. This code exclusively has an event handler for
+   the timer/alarm. It uses setInterval to count the timer down. */
+
+// check if the timer is ever started
 $('#list').on('click', '.timer-start', function(event) {
   var item = $(this).parent();
 
@@ -25,14 +29,20 @@ $('#list').on('click', '.timer-start', function(event) {
       h = Math.floor(new_time / 3600).toString().padStart(2, '0');
       m = Math.floor(new_time % 3600 / 60).toString().padStart(2, '0');
       s = Math.floor(new_time % 60).toString().padStart(2, '0');
-      // Set 
+      // Set the time to the next second
       item.find('.timer-time').text(h + 'h ' + m + 'm ' + s + 's');
 
+      // Check if time is up
       if (new_time <= 0) {
         clearInterval(x);
-        item.find('.timer-time').text(h + 'h ' + m + 'm ' + s + 's');
+        // play audio once done
         if(parseInt($("#annoy-count").attr('class')) >= 2) {
+          // play annoying audio
           var audio = document.getElementById("annoy-audio");
+          audio.play()
+        } else {
+          // play normal audio
+          var audio = document.getElementById("normal-audio");
           audio.play()
         }
         alert("HELLO! Have you done: " + item.find(".description").text());

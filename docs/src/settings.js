@@ -1,3 +1,9 @@
+/* Author: Dennis Shim
+   All code in here is mine. This code has event handlers to show and hide
+   settings, and to show/hide/change things such as text color, background
+   color, creation dates, alarms, and annoyance. */
+
+// When the settings are submitted, change accordingly
 $('.settings-form').on('submit', function(event) {
   // Don't let the page refresh every time an event occurs.
   event.preventDefault();

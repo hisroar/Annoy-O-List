@@ -1,4 +1,16 @@
-// Address of the server we are storing our list on
+/* Author: Dennis Shim
+   JS adapted from a Javascript to-do list tutorial
+   http://docs.railsbridge.org/javascript-to-do-list/javascript-to-do-list
+   I used this code as a base to add settings as well as additional features
+   which I could not have implemented if I had to learn how to write a to-do
+   list by myself from scratch. I have never done web development before. */
+
+/* Most code in here is adapted from the tutorial. I have labelled code that
+   was adapted from the tutorial, as well as code that I added. I was planning
+   to use a listItem class to make list objects, but I didn't have the time or
+   understanding to adapt the code well enough to include the class. */
+
+// Address of the server we are storing our list on courtesy of the tutorial
 var server_url = "https://listalous.herokuapp.com/lists/Annoy-O-List";
 
 // Tutorial - jQuery to get the template for our items, and our list of items from HTML

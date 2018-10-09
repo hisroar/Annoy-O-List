@@ -1,7 +1,18 @@
+/* Author: Dennis Shim
+   CSS adapted from a Javascript to-do list tutorial
+   http://docs.railsbridge.org/javascript-to-do-list/javascript-to-do-list
+   I used this code as a base to add settings as well as additional features
+   which I could not have implemented if I had to learn how to write a to-do
+   list by myself from scratch. I have never done web development before. */
+
+/* I wrote all CSS for settings. I modified and adapted CSS for the rest. All
+   comments are written by me */
+
 body {
   background: url('../assets/debut_light.png')
 }
 
+/* many things inherit from color and font of container */
 .container {
   width: 1000px;
   font-family: 'Karla', sans-serif;
@@ -12,10 +23,17 @@ body {
 }
 
 h1 {
-  margin: 20px;
+  margin: 5px;
   color: inherit;
 }
 
+h2 {
+  margin: 20px;
+  font-size: 16px;
+  color: inherit;
+}
+
+/* for main application */
 #app {
   box-shadow: 0 0 5px currentColor;
   font-size: 35px;
@@ -23,6 +41,7 @@ h1 {
   background-color: white;
 }
 
+/* for settings div */
 #settings {
   font-size: 30px;
   line-height: 1.6em;
@@ -34,6 +53,7 @@ form {
   padding: 0;
 }
 
+/* make item input a nice-looking box */
 #create {
   color: inherit;
   width: 100%;
@@ -55,6 +75,7 @@ form {
   box-sizing: border-box;
 }
 
+/* make items have a nice-looking box around them */
 .item {
   position: relative;
   box-sizing: border-box;
@@ -68,6 +89,7 @@ form {
 
 }
 
+/* put complete button on the left and centered vertically */
 .item .complete-button {
   position: absolute;
   left: 20px;
@@ -82,6 +104,7 @@ form {
   word-wrap: break-word;
 }
 
+/* put complete button on the left and centered vertically */
 .item .delete-button {
   position: absolute;
   right: 20px;
@@ -90,6 +113,7 @@ form {
   cursor: pointer;
 }
 
+/* put created time on the upper-right corner */
 .item .created-time {
   position: absolute;
   right: 20px;
@@ -98,11 +122,13 @@ form {
   display: none;
 }
 
+/* change the color and put a strike-through on completed items */
 .completed {
   color: #C3C3C4;
   text-decoration: line-through;
 }
 
+/* button for timer start should be centered vertically on the right */
 .item .timer-start {
   position: absolute;
   right: -90px;
@@ -114,6 +140,7 @@ form {
   display: none;
 }
 
+/* display for how much time left should be centered vertically on the right */
 .item .timer-time {
   position: absolute;
   right: -190px;
@@ -125,22 +152,24 @@ form {
   display: none;
 }
 
+/* never display templates */
 #templates {
   display: none
 }
 
 /* for settings */
-
 #settings {
   color: inherit;
 }
 
+/* show settings button */
 #settings-show {
   font-family: inherit;
   font-size: 20px;
   color: inherit;
 }
 
+/* hide settings button is initially hidden */
 #settings-hide {
   font-family: inherit;
   font-size: 20px;
@@ -148,6 +177,7 @@ form {
   display: none;
 }
 
+/* settings are initially hidden */
 #settings-list {
   display: none;
   color: inherit;
@@ -188,13 +218,12 @@ form {
   font-weight: normal;
 }
 
-/*#advanced-settings {
-  display: none;
-}*/
+/* advanced settings are initially hidden */
 .advanced-tr {
   display: none;
 }
 
+/* make checkbox bigger */
 .adv-check {
   height: 22px;
   width: 22px;
