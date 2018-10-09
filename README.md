@@ -5,7 +5,7 @@ to-do list code was adapted from [RailsBridge's Javascript To Do List tutorial](
 
 ## Usage
 
-Live version should be found [https://hisroar.github.io/Annoy-O-List/](here)
+Live version should be found [here](https://hisroar.github.io/Annoy-O-List/)
 
 If not, try below:
 
