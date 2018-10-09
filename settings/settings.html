@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Annoy-O-List Settings</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:600' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="index">
+        <a href="../index.html">Back to Annoy-O-List</a>
+      </div>
+
+      <div id="settings-list">
+        <form class="settings-form">
+          <!-- drop-down for text color -->
+          <label class="settings-label">Text color</label>
+          <select class="color-val settings-input" id="colorValue">
+            <option value="#FFFFFF">Weary White</option>
+            <option value="#000000">Boring Black</option>
+            <option value="#7d82b0">Practical Purple</option>
+            <option value="#cd5555">Resounding Red</option> 
+          </select>
+
+          <div>
+            <button type="submit" id="settings-save">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="../src/settings.js"></script>
+
+  </body>
+
+</html>

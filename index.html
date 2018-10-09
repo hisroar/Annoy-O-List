@@ -1,0 +1,130 @@
+
+<html>
+  <head>
+    <title>Annoy-O-List</title>
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <!-- fonts from Google -->
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet" type='text/css'>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
+    <!-- Third party scripts -->
+    <script src="lib/js-yaml.js"></script>
+    <!-- my scripts -->
+    <script src="src/app.js"></script>
+    <script src="src/settings.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Heading title -->
+      <h1>Annoy-O-List</h1>
+
+      <!-- Settings -->
+      <div id="settings">
+        <!-- Show/hide buttons -->
+        <button class="settings-sh" id="settings-show">Show Settings</button>
+        <button class="settings-sh" id="settings-hide">Hide Settings</button>
+
+        <!-- settings hidden by default -->
+        <div id="settings-list">
+
+          <form class="settings-form">
+            <!-- format settings nicely -->
+            <table class="settings-table">
+              <tr>
+                <!-- drop-down for text color -->
+                <td>
+                  <label class="settings-label">Text color</label>
+                </td>
+                <td>
+                  <select class="text-val settings-input" id="colorValue">
+                    <option value="#f5f5f5">Weary White</option>
+                    <option value="#000000">Boring Black</option>
+                    <option value="#7d82b0" selected="selected">Practical Purple</option>
+                    <option value="#cd5555">Resounding Red</option> 
+                  </select>
+                </td>
+              </tr>
+
+              <tr>
+                <!-- drop-down for app background color -->
+                <td>
+                  <label class="settings-label">Background color</label>
+                </td>
+                <td>
+                  <select class="background-val settings-input" id="colorValue">
+                    <option value="#ffffff" selected="selected">Tidy</option>
+                    <option value="#222222">Darkness</option>
+                    <option value="#7d82b0">Lazy</option>
+                    <option value="#d4d400">Gross</option> 
+                  </select>
+                </td>
+              </tr>
+            <!--</table>-->
+
+            <!-- Advanced setttings -->
+              <!-- link to hide/unhide advanced settings -->
+              <th colspan="2" id="show-adv-tr">
+                  <a href='#' id='show-advanced'>Advanced settings...</a>
+              </th>
+
+              <!-- advanced settings hidden by default -->
+              <!--<div id='advanced-settings'>-->
+              <!--<table class="settings-table">-->
+              <tr class="advanced-tr">
+                <!-- drop-down for text color -->
+                <td>
+                  <label class="settings-label">Display time</label>
+                </td>
+                <td>
+                  <input type="checkbox" id="display-time">
+                </td>
+              </tr>
+
+              <tr id="table-alarm" class="advanced-tr hidden-adv">
+                <!-- drop-down for app background color -->
+                <td>
+                  <label class="settings-label">Enable alarms</label>
+                </td>
+                <td>
+                  <input type="checkbox" id="enable-alarm">
+                </td>
+              </tr>
+            </table>
+              <!--</div>-->
+
+            <!-- apply settings button -->
+            <div>
+              <button type="submit" id="settings-save">Apply</button>
+            </div>
+          </form>
+
+          
+        </div>
+      </div>
+      <!-- End of settings -->
+
+      <!-- To-do list application -->
+      <div id="app">
+        <ul id='list'>
+
+        </ul>
+        <form id='add-form'>
+          <input id="create" name="itemDescription" type="text" placeholder="Add an item to the Annoy-O-List here." required="required">
+        </form>
+      </div>
+    </div>
+
+    <ul id='templates'>
+      <li class='item' data-id="some id">
+        <span class='complete-button'>&#10004;</span>
+        <div class="description">A stick of butter</div>
+        <span class="delete-button">&#10008;</span>
+        <span class="created-time">12/03/2018 10:20 PM</span>
+      </li>
+    </ul>
+
+    
+  </body>
+</html>

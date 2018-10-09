@@ -1,0 +1,176 @@
+body {
+  background: url('../assets/debut_light.png')
+}
+
+.container {
+  width: 1000px;
+  font-family: 'Karla', sans-serif;
+  font-size: 40px;
+  text-align: center;
+  margin: 40px auto;
+  color: #7d82b0;
+}
+
+h1 {
+  margin: 20px;
+  color: inherit;
+}
+
+#app {
+  box-shadow: 0 0 5px currentColor;
+  font-size: 35px;
+  color: inherit;
+  background-color: white;
+}
+
+#settings {
+  font-size: 30px;
+  line-height: 1.6em;
+  margin: 30px;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+#create {
+  color: inherit;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 10px 30px;
+  border-left:    1px  solid currentColor;
+  border-right:   1px  solid currentColor;
+  border-bottom:  2px  solid currentColor;
+  border-top:     15px solid currentColor;
+  text-align: center;
+  background-color: white;
+}
+
+#list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.item {
+  position: relative;
+  box-sizing: border-box;
+  padding: 10px;
+  list-style-type: none;
+  width: 100%;
+  border-left:    1px  solid currentColor;
+  border-right:   1px  solid currentColor;
+  border-bottom:  2px  solid currentColor;
+  border-top:     0px  solid currentColor;
+
+}
+
+.item .complete-button {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.item .description {
+  margin: 0 50px;
+  padding: 0 15px;
+  word-wrap: break-word;
+}
+
+.item .delete-button {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.item .created-time {
+  position: absolute;
+  right: 20px;
+  top: 0px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.item.completed {
+  color: #C3C3C4;
+}
+
+#templates {
+  display: none
+}
+
+/* for settings */
+
+#settings {
+  color: inherit;
+}
+
+#settings-show {
+  font-family: inherit;
+  font-size: 20px;
+  color: inherit;
+}
+
+#settings-hide {
+  font-family: inherit;
+  font-size: 20px;
+  color: inherit;
+  display: none;
+}
+
+#settings-list {
+  display: none;
+}
+
+.settings-form {
+}
+
+.settings-form .settings-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.settings-form .settings-label {
+  margin-right: 50px;
+  font-size: 30px;
+}
+
+.settings-form .settings-input {
+  font-family: inherit;
+  font-size: 20px;
+}
+
+#settings-save {
+  font-family: inherit;
+  font-size: 20px;
+  color: inherit;
+}
+
+#show-advanced {
+  font-size: 20px;
+}
+
+#show-adv-tr {
+  text-align: center;
+  font-weight: normal;
+}
+
+/*#advanced-settings {
+  display: none;
+}*/
+.advanced-tr {
+  display: none;
+}
+
+#table-alarm {
+  display: none;
+}
+
+.time-stamps {
+  display: none;
+}
